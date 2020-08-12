@@ -10,7 +10,6 @@ private:
     string SenderKey;
     string ReceivierKey;
     double Amount;
-    int Difficulty;
     string Timestamp;
 public:
     Transaction();
@@ -20,7 +19,6 @@ public:
     string get_SenderKey();
     string get_ReceiverKey();
     int get_Amount();
-    int get_Difficulty();
 
 };
 #endif

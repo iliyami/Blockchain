@@ -10,6 +10,7 @@ private:
     size_t Previous_hash;
     Transaction transaction;
     int index;
+    int Difficulty;
     int nonce;
     // NOOOOOOOOOOOOOOOOOOOONCe
 public:
@@ -17,8 +18,11 @@ public:
     int get_Difficulty();
     int get_index();
     int get_nonce();
+    size_t get_PrevHash();
     size_t GenerateHash();
     void set_nonce(size_t);
+    bool POW();
+
 };
 #endif
 
@@ -57,7 +61,7 @@ int Block::get_index()
 
 int Block::get_Difficulty()
 {
-    transaction.get_Difficulty();
+    return Difficulty;
 }
 
 int Block::get_nonce()
@@ -70,5 +74,19 @@ void Block::set_nonce(size_t nonce)
     this->nonce = nonce;
 }
 
+size_t Block::get_PrevHash()
+{
+    return Previous_hash;
+}
+
+bool Block::POW()
+{
+    do
+    {
+        hash <string> Guess;
+
+    } while ();
+    
+}
 
 
