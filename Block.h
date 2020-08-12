@@ -14,7 +14,7 @@ private:
     int nonce;
     // NOOOOOOOOOOOOOOOOOOOONCe
 public:
-    Block(Transaction &, size_t, int);
+    Block(Transaction &, size_t, int, int);
     int get_Difficulty();
     int get_index();
     int get_nonce();
@@ -26,12 +26,13 @@ public:
 };
 #endif
 
-Block::Block(Transaction &UserTransaction, size_t PrevHash, int index)
+Block::Block(Transaction &UserTransaction, size_t PrevHash, int index, int Diff)
 {
     transaction = UserTransaction;
     Current_hash = GenerateHash();
     Previous_hash = PrevHash;
     this->index = index;
+    Difficulty = Diff;
 }
 
 size_t Block::GenerateHash()

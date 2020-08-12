@@ -13,7 +13,7 @@ private:
     string Timestamp;
 public:
     Transaction();
-    Transaction(string, string, size_t = 0.0, int = 4);
+    Transaction(string, string, size_t = 0.0);
     string TimeStamp();
     string get_Timestamp();
     string get_SenderKey();
@@ -25,7 +25,7 @@ public:
 
 Transaction::Transaction(){};
 
-Transaction::Transaction(string Senderkey, string ReceiverKey, size_t Amount, int Diff)
+Transaction::Transaction(string Senderkey, string ReceiverKey, size_t Amount)
 {
     this->SenderKey = Senderkey;
     this->ReceivierKey = ReceiverKey;
@@ -69,10 +69,5 @@ string Transaction::get_ReceiverKey()
 int Transaction::get_Amount()
 {
     return Amount;
-}
-
-int Transaction::get_Difficulty()
-{
-    return Difficulty;
 }
 
