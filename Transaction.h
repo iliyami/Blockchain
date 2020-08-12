@@ -19,7 +19,7 @@ public:
     string get_SenderKey();
     string get_ReceiverKey();
     int get_Amount();
-
+    string AllToString();
 };
 #endif
 
@@ -69,5 +69,12 @@ string Transaction::get_ReceiverKey()
 int Transaction::get_Amount()
 {
     return Amount;
+}
+
+string Transaction::AllToString()
+{
+    string All;
+    All = SenderKey + ReceivierKey + to_string(Amount) + Timestamp;
+    return All;
 }
 
