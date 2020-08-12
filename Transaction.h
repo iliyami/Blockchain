@@ -13,14 +13,19 @@ private:
     int Difficulty;
     string Timestamp;
 public:
+    Transaction();
     Transaction(string, string, size_t = 0.0, int = 4);
     string TimeStamp();
     string get_Timestamp();
     string get_SenderKey();
     string get_ReceiverKey();
     int get_Amount();
+    int get_Difficulty();
+
 };
 #endif
+
+Transaction::Transaction(){};
 
 Transaction::Transaction(string Senderkey, string ReceiverKey, size_t Amount, int Diff)
 {
@@ -66,5 +71,10 @@ string Transaction::get_ReceiverKey()
 int Transaction::get_Amount()
 {
     return Amount;
+}
+
+int Transaction::get_Difficulty()
+{
+    return Difficulty;
 }
 
