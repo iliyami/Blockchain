@@ -14,7 +14,7 @@ private:
     size_t nonce;
     // NOOOOOOOOOOOOOOOOOOOONCe
 public:
-    Block(Transaction &, size_t, int, int);
+    Block(Transaction &, size_t, int, int = 4);
     int get_Difficulty();
     int get_index();
     int get_nonce();
