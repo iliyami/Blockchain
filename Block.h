@@ -18,6 +18,7 @@ public:
     int get_index();
     int get_nonce();
     size_t GenerateHash();
+    void set_nonce(size_t);
 };
 #endif
 
@@ -63,4 +64,11 @@ int Block::get_nonce()
 {
     return nonce;
 }
+
+void Block::set_nonce(size_t nonce)
+{
+    this->nonce = nonce;
+}
+
+
 
