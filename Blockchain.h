@@ -9,6 +9,7 @@ private:
     vector <Block> BlockChain;
 public:
     Blockchain();
+    vector <Block> get_BlockChain();
     void ShowBlockchain();
     void ShowBlock(int);
     bool POW();
@@ -25,5 +26,8 @@ Blockchain::Blockchain()
     BlockChain.push_back(Genesis);
 }
 
-
+vector <Block> Blockchain::get_BlockChain()
+{
+    return BlockChain;
+}
 
