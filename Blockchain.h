@@ -12,8 +12,7 @@ public:
     vector <Block> get_BlockChain();
     void ShowBlockchain();
     void ShowBlock(int);
-    bool POW();
-    void AddBlock();
+    void AddBlock(Block &);
 
 };
 #endif
@@ -31,3 +30,16 @@ vector <Block> Blockchain::get_BlockChain()
     return BlockChain;
 }
 
+void Blockchain::AddBlock(Block &block)
+{
+    if (block.POW() == true)
+    {
+        BlockChain.push_back(block);
+        cout << "Done!" << endl;
+    }
+    else
+    {
+        cout << "Invalid Block!" << endl;
+    }
+    
+}
