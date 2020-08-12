@@ -11,7 +11,7 @@ private:
     Transaction transaction;
     int index;
     int Difficulty;
-    int nonce;
+    size_t nonce;
     // NOOOOOOOOOOOOOOOOOOOONCe
 public:
     Block(Transaction &, size_t, int, int);
@@ -22,7 +22,7 @@ public:
     size_t GenerateHash();
     void set_nonce(size_t);
     bool POW();
-
+    bool DigitChecker(string);
 };
 #endif
 
@@ -47,7 +47,6 @@ size_t Block::GenerateHash()
     //     size_t CurrentHash;
     //     size_t PrvHash;
     // }data;
-
     // data.CurrentHash = DataHash(ToHash);
     // data.PrvHash = PrevHash(to_string(Previous_hash));
     // Previous_hash = PrevHash(to_string(Previous_hash));
@@ -80,14 +79,34 @@ size_t Block::get_PrevHash()
     return Previous_hash;
 }
 
+bool Block::DigitChecker(string Guess)
+{
+    for (int i = 0; i < Difficulty - 1; i++)
+    {
+        if (Guess[i] != '0')
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 bool Block::POW()
 {
+    bool AccessGrant = false;
     do
     {
+        string GuessStr;
+        nonce = rand();
         hash <string> Guess;
-
-    } while ();
-    
+        GuessStr = Guess(to_string(nonce) + to_string(Previous_hash) + to_string(Current_hash) + transaction.AllToString());
+        if (DigitChecker(GuessStr) == true)
+        {
+            AccessGrant = true;
+        }
+        
+    } while (AccessGrant == false);
+    return true;
 }
 
 
