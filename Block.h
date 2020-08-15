@@ -2,6 +2,7 @@
 #define Block_H
 #include "Transaction.h"
 #include <ctime>
+#include <string>
 
 class Block
 {
@@ -12,7 +13,6 @@ private:
     int index;
     int Difficulty;
     size_t nonce;
-    // NOOOOOOOOOOOOOOOOOOOONCe
 public:
     Block(Transaction &, size_t, int, int = 4);
     int get_Difficulty();
@@ -93,10 +93,12 @@ size_t Block::get_PrevHash()
 
 bool Block::DigitChecker(string Guess)
 {
-    for (int i = 0; i < Difficulty - 1; i++)
+    // cout << "++++====" << Guess << "++++====" << endl;
+    for (int i = 0; i <= Difficulty - 1; i++)
     {
         if (Guess[i] != '0')
         {
+            // cout << "+++1+++" << Guess[i] << "+++1++" << endl;
             return false;
         }
     }
@@ -109,12 +111,17 @@ bool Block::POW()
     do
     {
         string GuessStr;
+        int Guessnumb;
         nonce = rand();
         hash <string> Guess;
-        GuessStr = Guess(to_string(nonce) + to_string(Previous_hash) + to_string(Current_hash) + transaction.AllToString());
+        Guessnumb = Guess(to_string(nonce) + to_string(Previous_hash) + to_string(Current_hash) + transaction.AllToString());
+        GuessStr = to_string(Guessnumb);
+        GuessStr.erase(GuessStr.begin());
+        Guessnumb = stoi(GuessStr);
         if (DigitChecker(GuessStr) == true)
         {
             AccessGrant = true;
+            // cout << "+++++++ " << GuessStr << " ++++++++" << endl;
         }
         
     } while (AccessGrant == false);
