@@ -20,11 +20,23 @@ public:
     int get_nonce();
     size_t get_PrevHash();
     size_t GenerateHash();
+    size_t get_CurrentHash();
+    Transaction get_Transaction();
     void set_nonce(size_t);
     bool POW();
     bool DigitChecker(string);
 };
 #endif
+
+size_t Block::get_CurrentHash()
+{
+    return Current_hash;
+}
+
+Transaction Block::get_Transaction()
+{
+    return transaction;
+}
 
 Block::Block(Transaction &UserTransaction, size_t PrevHash, int index, int Diff)
 {
