@@ -13,9 +13,34 @@ public:
     void ShowBlockchain();
     void ShowBlock(int);
     void AddBlock(Block &);
-
+    bool CheckHash(int, size_t);
 };
 #endif
+
+void Blockchain::ShowBlock(int index)
+{
+    cout << "===========================" << endl;
+    cout << "Timestamp:" << endl;
+    cout << BlockChain[index].get_Transaction().get_Timestamp() << endl;
+    cout << "nonce:" << endl;
+    cout << BlockChain[index].get_nonce() << endl;
+    cout << "CurrentHash:" << endl;
+    cout << BlockChain[index].get_CurrentHash() << endl;
+    cout << "PrevHash:" << endl;
+    cout << BlockChain[index].get_PrevHash() << endl;
+    cout << "Difficulty:" << endl;
+    cout << BlockChain[index].get_Difficulty() << endl;
+    cout << "===========================" << endl;
+}
+
+bool Blockchain::CheckHash(int index, size_t PrevHash)
+{
+    if (BlockChain[index - 1].get_PrevHash() == PrevHash)
+    {
+        return true;
+    }
+    return false;
+}
 
 Blockchain::Blockchain()
 {
