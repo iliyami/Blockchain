@@ -21,7 +21,6 @@ void Blockchain::ShowBlock(int index)
 {
     cout << "===========================" << endl;
     cout << "Timestamp:" << endl;
-    cout << "Indexxx: " << index << endl;
     cout << BlockChain[index].get_Transaction().get_Timestamp() << endl;
     cout << "nonce:" << endl;
     cout << BlockChain[index].get_nonce() << endl;
@@ -61,7 +60,6 @@ void Blockchain::AddBlock(Block &block)
     if (block.POW() == true)
     {
         BlockChain.push_back(block);
-        cout << "Done!" << endl;
     }
     else
     {
