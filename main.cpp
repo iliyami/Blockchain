@@ -54,7 +54,14 @@ int main()
                 cout << "Enter your index:" << endl;
                 int index;
                 cin >> index;
-                BlockChain.ShowBlock(index);
+                if (index > BlockChain.get_BlockChain().size())
+                {
+                    cout << "\n====== There Is No Block With This Index! ======\n" << endl;
+                }
+                else
+                {
+                    BlockChain.ShowBlock(index - 1);
+                }                
                 break;
             case '3':
                 cout << "Sakhtan" << endl;
