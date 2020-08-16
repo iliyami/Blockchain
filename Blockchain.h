@@ -67,3 +67,22 @@ void Blockchain::AddBlock(Block &block)
     }
     
 }
+
+void Blockchain::ShowBlockchain()
+{
+    for (int i = 0; i < BlockChain.size(); i++)
+    {
+        cout << "============Block[" << i << "]===============" << endl;
+        cout << "Timestamp:" << endl;
+        cout << BlockChain[i].get_Transaction().get_Timestamp() << endl;
+        cout << "nonce:" << endl;
+        cout << BlockChain[i].get_nonce() << endl;
+        cout << "CurrentHash:" << endl;
+        cout << BlockChain[i].get_CurrentHash() << endl;
+        cout << "PrevHash:" << endl;
+        cout << BlockChain[i].get_PrevHash() << endl;
+        cout << "Difficulty:" << endl;
+        cout << BlockChain[i].get_Difficulty() << endl;
+        cout << "===========================" << endl;
+    }
+}
