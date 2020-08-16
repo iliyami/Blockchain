@@ -21,6 +21,7 @@ void Blockchain::ShowBlock(int index)
 {
     cout << "===========================" << endl;
     cout << "Timestamp:" << endl;
+    cout << "Indexxx: " << index << endl;
     cout << BlockChain[index].get_Transaction().get_Timestamp() << endl;
     cout << "nonce:" << endl;
     cout << BlockChain[index].get_nonce() << endl;

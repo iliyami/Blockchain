@@ -24,16 +24,27 @@ int main()
             cin >> ReceiverKey;
             cout <<  "Enter The Amount:" << endl;
             cin >> Amount;
-            cout <<  "Enter Your Difficulty:" << endl;
+            cout <<  "Enter Your Difficulty or zero to ignore:" << endl;
             cin >> Diff;
 
             Transaction T1(SenderKey, ReceiverKey, Amount);
             
-            Block block(T1, BlockChain.get_BlockChain()[BlockChain.get_BlockChain().size() - 1].get_PrevHash(), BlockChain.get_BlockChain().size(), Diff);
+            if (Diff == 0)
+            {
+                Block block(T1, BlockChain.get_BlockChain()[BlockChain.get_BlockChain().size() - 1].get_CurrentHash(), BlockChain.get_BlockChain().size());
 
-            BlockChain.AddBlock(block);
+                BlockChain.AddBlock(block);
 
-            BlockChain.CheckHash(block.get_index() - 1, block.get_PrevHash());
+                BlockChain.CheckHash(block.get_index() - 1, block.get_PrevHash());
+            }
+            else
+            {
+                Block block(T1, BlockChain.get_BlockChain()[BlockChain.get_BlockChain().size() - 1].get_CurrentHash(), BlockChain.get_BlockChain().size(), Diff);
+
+                BlockChain.AddBlock(block);
+
+                BlockChain.CheckHash(block.get_index() - 1, block.get_PrevHash());
+            }
         }
         else
         {

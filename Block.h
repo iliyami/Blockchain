@@ -42,6 +42,7 @@ Block::Block(Transaction &UserTransaction, size_t PrevHash, int index, int Diff)
 {
     transaction = UserTransaction;
     Current_hash = GenerateHash();
+    cout << "+++0+++" << PrevHash << "+++0+++"<< endl;
     Previous_hash = PrevHash;
     this->index = index;
     Difficulty = Diff;
@@ -111,17 +112,17 @@ bool Block::POW()
     do
     {
         string GuessStr;
-        int Guessnumb;
+        size_t Guessnumb;
         nonce = rand();
         hash <string> Guess;
         Guessnumb = Guess(to_string(nonce) + to_string(Previous_hash) + to_string(Current_hash) + transaction.AllToString());
         GuessStr = to_string(Guessnumb);
         GuessStr.erase(GuessStr.begin());
-        Guessnumb = stoi(GuessStr);
+        // Guessnumb = stoi(GuessStr);
         if (DigitChecker(GuessStr) == true)
         {
             AccessGrant = true;
-            // cout << "+++++++ " << GuessStr << " ++++++++" << endl;
+            cout << "+++++++ " << GuessStr << " ++++++++" << endl;
         }
         
     } while (AccessGrant == false);
